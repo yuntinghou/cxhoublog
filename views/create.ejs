@@ -1,0 +1,33 @@
+<%- include('components/header.ejs', {title:'Contact'}) %>
+<header class="intro-header" style="background-image: url('/img/post-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="page-heading">
+                    <h1>New Post</h1>
+                    <hr class="small">
+                    <span class="subheading">What do you want to share with us?</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <form name="sendPost" id="postForm">
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                        <label>Title</label>
+                        <input type="text" class="form-control" placeholder="Title" id="title" required data-validation-required-message="Please enter the title.">
+                    </div>
+                </div>
+                <div class="row control-group">
+                    <div class="from-group col-xs-12"
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include components/footer %>
