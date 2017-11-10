@@ -9,7 +9,7 @@ Post.plugin('contentToHtml', {
     },
     afterFindOne: function(post) {
         if (post) {
-            return post.content = marked(post.content);
+            post.content = marked(post.content);
         }
         return post;
     }

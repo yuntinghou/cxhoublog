@@ -13,6 +13,22 @@ router.get('/', function(req, res, next) {
         })
         .catch(next);
 });
+
+router.get('/:postId', function(req, res, next) {
+    var postId = req.params.postId;
+    Promise.all([PostModel.getPostById(postId)])
+        .then(function(result) {
+            const post = result[0];
+            if (!post) {
+                throw new Error("The Article is not exist.");
+            }
+            res.render('sample', {
+                post: post
+            })
+        })
+        .catch(next);
+});
+
 router.get('/add', function(req, res, next) {
     PostModel.create({
         title: 'Five Rams Earn ESPN Midseason All-Pro Honors',
