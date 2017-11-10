@@ -5,10 +5,15 @@ var PostModel = require('../models/posts');
 // var checkLogin = require('../middleware/check').checkLogin;
 
 router.get('/', function(req, res, next) {
-    PostModel.getPosts()
-        .then(function(posts) {
+    var page = 1;
+    Promise.all([PostModel.getPosts(page), PostModel.getTotalCount()])
+        .then(function(result) {
+            const posts = result[0];
+            const maxCount = Math.ceil(result[1] / 5);
             res.render('index', {
-                posts: posts
+                posts: posts,
+                page: page,
+                maxCount: maxCount
             })
         })
         .catch(next);

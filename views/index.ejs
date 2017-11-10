@@ -22,14 +22,9 @@
                 <%- include('components/post-content', { post: post })%>
             <% }) %>
             <!-- Pager -->
-            <ul class="pager">
-                <li class="previous">
-                    <a href="#">&larr; Newer Posts</a>
-                </li>
-                <li class="next">
-                    <a href="#">Older Posts &rarr;</a>
-                </li>
-            </ul>
+            <div class="text-center">
+                <%- include('components/pager',{page: page, maxCount: maxCount}) %>
+            </div>
         </div>
     </div>
 </div>

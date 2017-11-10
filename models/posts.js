@@ -38,7 +38,9 @@ module.exports = {
         return Post.remove({_id: postId})
             .exec();
     },
-    getPosts: function(author) {
+    getPosts: function(page, author) {
+        var perPage = 5;
+        var p = page || 1;
         var query = {};
         if (author) {
             query.author = author;
@@ -46,8 +48,13 @@ module.exports = {
         return Post
             .find(query)
             .sort({ _id : -1})
+            .skip((perPage * p) - perPage)
+            .limit(perPage)
             .addCreatedAt()
             .contentToHtml()
             .exec();
+    },
+    getTotalCount: function() {
+        return Post.count();
     }
 };

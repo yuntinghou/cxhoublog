@@ -6,4 +6,5 @@ module.exports = function(app) {
     app.use('/about', require('./about'));
     app.use('/contact', require('./contact'));
     app.use('/sample', require('./sample'));
+    app.use('/page', require('./page'));
 };
